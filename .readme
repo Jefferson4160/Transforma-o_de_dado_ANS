@@ -1,0 +1,27 @@
+Teste de Nivelamento - Transformação de Dados
+
+Este repositório contém a solução para o Teste 2 do desafio técnico, focado na extração, tratamento e exportação de dados de tabelas contidas em arquivos PDF.
+
+📋 Descrição do Projeto
+O script Python realiza a leitura completa do Anexo I do Rol de Procedimentos e Eventos em Saúde da ANS. Ele extrai as tabelas de todas as páginas, realiza a limpeza de ruídos (como quebras de linha e repetições de cabeçalhos), padroniza nomenclaturas e exporta o resultado final em um arquivo CSV compactado.
+
+🛠️ Tecnologias Utilizadas
+1. Python 3.12
+2. Pandas: Para manipulação e tratamento dos dados.
+3. Tabula-py: Para extração de tabelas de arquivos PDF (baseado em Java).
+4. Zipfile: Para compactação do arquivo de saída.
+
+📂 Configuração Necessária
+Para que o script funcione corretamente, o arquivo PDF original deve estar localizado na mesma pasta do script com o seguinte nome:
+
+Anexo_I_Rol_2021RN_465.2021_RN654.2025L.pdf
+
+🧹 Tratamentos Realizados
+
+O script aplica automaticamente as seguintes regras de negócio e limpeza:
+
+1. Extração via Lattice: Garante a integridade das colunas baseando-se nas grades da tabela.
+2. Limpeza de Cabeçalhos: Identifica e remove linhas de títulos que se repetem a cada quebra de página do PDF através de indexação booleana.
+3. Tratamento de Strings: Remove caracteres de escape (\n, \r) e espaços em branco desnecessários.
+4. Substituição Inteligente (Regex): Substitui as legendas OD por Odontologia e AMB por Ambulatorial, utilizando limites de palavra (\b) para evitar corrupção de termos técnicos.
+
